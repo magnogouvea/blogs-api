@@ -13,12 +13,11 @@ module.exports = (sequelize, DataTypes) => {
   {
     tablename: 'users',
     underscored: true,
+    timestamps: false
   });
   UserTable.associate = (models) => {
-    UserTable.hasMany(models.BlogPost, {
-      as: 'blog_post',
-      foreignKey: 'user_id',
-    })
+    UserTable.hasMany(models.BlogPost,
+      { foreignKey: 'userId', as: 'blogPost' });
   }
   return UserTable;
 };
