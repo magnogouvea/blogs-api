@@ -13,4 +13,14 @@ const userService = async ({ displayName, email, password, image }) => {
   return newToken;
 };
 
-module.exports = { userService };
+const getUsers = async () => {
+  const users = await User.findAll({
+    attributes: ['id', 'displayName', 'email', 'image'],
+  });
+  return users;
+};
+
+module.exports = { 
+  userService, 
+  getUsers,
+};
