@@ -10,4 +10,6 @@ tokenValidation.tokenValidation,
 categoryValidation.categoryValidation,
 categoryController.category);
 
+router.get('/categories', tokenValidation.tokenValidation, categoryController.getAllCategories);
+
 module.exports = router;
